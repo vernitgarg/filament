@@ -27,6 +27,14 @@
 #include <utils/CString.h>
 #include <utils/trap.h>
 
+#include "generated/vkshaders/vkshaders.h"
+
+static const uint8_t* kBlitColorVs = VKSHADERS_BLITCOLORVS_DATA;
+static const uint8_t* kBlitColorFs = VKSHADERS_BLITCOLORFS_DATA;
+
+static size_t kBlitColorVsSize = VKSHADERS_BLITCOLORVS_SIZE;
+static size_t kBlitColorFsSize = VKSHADERS_BLITCOLORFS_SIZE;
+
 #ifndef NDEBUG
 #include <set>
 #endif
