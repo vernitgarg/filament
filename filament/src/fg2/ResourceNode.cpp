@@ -55,7 +55,6 @@ utils::CString ResourceNode::graphvizify() const {
 
     uint32_t id = getId();
     const char* const nodeName = getName();
-    uint32_t refCount = getRefCount();
     VirtualResource* const pResource = mFrameGraph.getResource(resourceHandle);
 
     s.append("[label=\"");
@@ -74,7 +73,7 @@ utils::CString ResourceNode::graphvizify() const {
     s.append("\", ");
 
     s.append("style=filled, fillcolor=");
-    s.append(refCount ? "skyblue" : "skyblue4");
+    s.append(pResource->refcount ? "skyblue" : "skyblue4");
     s.append("]");
     s.shrink_to_fit();
 

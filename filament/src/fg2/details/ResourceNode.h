@@ -46,14 +46,12 @@ public:
         return mWriter != nullptr;
     }
 
-    std::vector<DependencyGraph::Edge *> const& getOutgoingEdges() const {
+    std::vector<DependencyGraph::Edge *> const& getOutgoingEdges() const noexcept {
         return mReaders;
     }
 
-    std::vector<DependencyGraph::Edge *> getIncomingEdges() const {
-        // okay, this is a bit overkill, but it makes the API simple & symmetric
-        if (!mWriter) { return {}; }
-        return { mWriter };
+    DependencyGraph::Edge const * getWriterEdge() const noexcept {
+        return mWriter;
     }
 
 private:
